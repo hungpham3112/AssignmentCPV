@@ -4,12 +4,7 @@ import tensorflow as tf
 from lib import detect_face
 
 def main():
-    st.title("Facial Expression Recognition")
-
-    option = st.sidebar.selectbox(
-        "Choose an option to detect and classify facial expressions.",
-        (["External Camera"])
-    )
+    st.title("Human recognition")
     frame_skip_rate = 3  # Best optimize frame
 
     if option == "External Camera":
@@ -25,7 +20,6 @@ def main():
                 if got_frame:
                     if frame_count % frame_skip_rate == 0:  # Process this frame
                         frame_window.image(detect_face(frame))
-
                 frame_count += 1  # Increment frame count
 
 if __name__ == "__main__":
